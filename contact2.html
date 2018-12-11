@@ -118,7 +118,10 @@
         $.post("/api/contactEmail", contactData)
           .then(function (data) {
             console.log("add.html", data);
-          });
+          })
+          .catch(function (err){
+            console.log(err)
+          })
           // alert("Your message was sucessfully sent.  We will contact you soon.  Thanks!");
       }
     });

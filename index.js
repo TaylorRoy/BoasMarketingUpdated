@@ -45,7 +45,13 @@ app.post('/api/contactEmail', function (req, res) {
         // text: 'data test',
         html: '<strong>' + req.body.first_name + " " + req.body.last_name + " wrote: " + req.body.message + "  I can be contacted at: " + req.body.phone + '</strong>',
     };
-    sgMail.send(msg)
+    sgMail.send(msg).then(res => {
+        console.log(res)
+        res.send({res:res})
+    }).catch(err => {
+        console.log(err)
+        res.send({err:err})
+    })
 })
 
 app.listen(PORT, function () {
