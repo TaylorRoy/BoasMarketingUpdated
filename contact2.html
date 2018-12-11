@@ -116,8 +116,10 @@
         }
 
         $.post("/api/contactEmail", contactData)
-          .then(function (data) {
-            console.log("add.html", data);
+          .then(function (res) {
+            if(res.status === 200){
+              console.log(res.message)
+            }
           })
           .catch(function (err){
             console.log(err)
