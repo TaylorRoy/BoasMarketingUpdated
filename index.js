@@ -46,9 +46,9 @@ app.post('/api/contactEmail', function (req, res) {
         // text: 'data test',
         html: '<strong>' + req.body.first_name + " " + req.body.last_name + " wrote: " + req.body.message + "  I can be contacted at: " + req.body.phone + '</strong>',
     };
-    sgMail.send(msg).then(res => {
-        console.log(res)
-        res.send({res:res})
+    sgMail.send(msg).then(response => {
+        console.log(response)
+        res.send({res:response})
     }).catch(err => {
         console.log(err)
         res.send({err:err})
