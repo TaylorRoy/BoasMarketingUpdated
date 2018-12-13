@@ -37,7 +37,7 @@ app.get("/contact", function (req, res) {
 app.post('/api/contactEmail', function (req, res) {
     sgMail.setApiKey(keys.sendgrid.secret);
     const msg = {
-        to: 'tbroy@hotmail.com',
+        to: 'charlie@boasmarketing.com',
         from: req.body.email,
         // from: 'tbroy@hotmail.com',
         subject: 'From Boas Marketing Website',
@@ -46,7 +46,7 @@ app.post('/api/contactEmail', function (req, res) {
         html: '<strong>' + req.body.first_name + " " + req.body.last_name + " wrote: " + req.body.message + "  I can be contacted at: " + req.body.phone + '</strong>',
     };
     sgMail.send(msg).then(response => {
-        res.send({status:200, Message:"We'll hit you up"})
+        res.send({status:200, message:"We'll hit you up"})
     }).catch(err => {
         res.send({err:err})
     })
